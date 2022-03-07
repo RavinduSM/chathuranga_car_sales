@@ -13,7 +13,7 @@ app.use(express.urlencoded( {extended: true}));
 mongoose.connect (process.env.MongoDB_URL);
 
 app.use('/api/users', userRouter);
-app.use('/api/vehicle', vehicleRouter);
+app.use('/api/vehicles', vehicleRouter);
 
 app.get('/', (req,res) => {
     res.send('Server is ready');
