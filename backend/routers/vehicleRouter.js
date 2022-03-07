@@ -46,6 +46,24 @@ vehicleRouter.delete('/:id', expressAsyncHandler(async (req, res) => {
     })
   );
 
-  
+  vehicleRouter.put('/:id', expressAsyncHandler(async(req,res) =>{
+      const vehicle = await Vehicle.findById(req.params.id);
+      if(vehicle) {
+        vehicle.vehicleModel = req.body.vehicleModel;
+        vehicle.bodyType = req.body.bodyType;
+        vehicle.transmission = req.body.transmission;
+        vehicle.engine = req.body.engine;
+        vehicle.mileage = req.body.mileage;
+        vehicle.interiorColor = req.body.interiorColor;
+        vehicle.exteriorColor = req.body.exteriorColor;
+
+        const updateVehicle = await vehicle.save();
+        res.send({message: 'Vehicle Updated', vehicle: updateVehicle});
+      } else {
+          res
+          .status(404)
+          .send({message: 'Vehicle not found'});
+      }
+  }))
 
 export default vehicleRouter;
