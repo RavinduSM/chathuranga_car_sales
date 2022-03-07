@@ -1,0 +1,19 @@
+import mongoose from "mongoose";
+
+const vehicleSchema = new mongoose.Schema(
+    {
+        vehicleModel: {type: String, required: true},
+        bodyType: {type: String, required: true},
+        transmission: {type: String, required: true},
+        engine: {type: String, required: true},
+        mileage: {type: Number, required: true},
+        interiorColor: {type: String, required: true},
+        exteriorColor: {type: String, required: true},
+    },
+    {
+        timestamps: true,
+    }
+);
+
+const Vehicle = mongoose.model('Vehicle', vehicleSchema);
+export default Vehicle;
