@@ -23,13 +23,19 @@ vehicleRouter.get('/:id', expressAsyncHandler( async(req,res) => {
 
 vehicleRouter.post('/add', expressAsyncHandler( async (req,res) => {
     const vehicle = new Vehicle({
-        vehicleModel: req.body.vehicleModel,
-        bodyType: req.body.bodyType,
-        transmission: req.body.transmission,
-        engine: req.body.engine,
-        mileage: req.body.mileage,
-        interiorColor: req.body.interiorColor,
-        exteriorColor: req.body.exteriorColor,
+      year: req.body.year,
+      vehicleModel: req.body.vehicleModel,
+      bodyType: req.body.bodyType,
+      transmission: req.body.transmission,
+      drivetrain: req.body.drivetrain,
+      engine: req.body.engine,
+      fuelType: req.body.fuelType,
+      fuelEconomy: req.body.fuelEconomy,
+      trim: req.body.trim,
+      mileage: req.body.mileage,
+      interiorColor: req.body.interiorColor,
+      exteriorColor: req.body.exteriorColor,
+      stockNumber: req.body.stockNumber,
     })
     const createVehicle = await vehicle.save();
     res.send( {message: 'Vehicle added', vehicle: createVehicle }); 
@@ -49,13 +55,19 @@ vehicleRouter.delete('/:id', expressAsyncHandler(async (req, res) => {
   vehicleRouter.put('/:id', expressAsyncHandler(async(req,res) =>{
       const vehicle = await Vehicle.findById(req.params.id);
       if(vehicle) {
+        vehicle.year = req.body.year;
         vehicle.vehicleModel = req.body.vehicleModel;
         vehicle.bodyType = req.body.bodyType;
         vehicle.transmission = req.body.transmission;
+        vehicle.drivetrain = req.body.drivetrain;
         vehicle.engine = req.body.engine;
+        vehicle.fuelType = req.body.fuelType;
+        vehicle.fuelEconomy = req.body.fuelEconomy;
+        vehicle.trim = req.body.trim;
         vehicle.mileage = req.body.mileage;
         vehicle.interiorColor = req.body.interiorColor;
         vehicle.exteriorColor = req.body.exteriorColor;
+        vehicle.stockNumber = req.body.stockNumber
 
         const updateVehicle = await vehicle.save();
         res.send({message: 'Vehicle Updated', vehicle: updateVehicle});
