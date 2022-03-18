@@ -26,6 +26,7 @@ vehicleRouter.post('/add', expressAsyncHandler( async (req,res) => {
       year: req.body.year,
       vehicleModel: req.body.vehicleModel,
       bodyType: req.body.bodyType,
+      image: req.body.image,
       transmission: req.body.transmission,
       drivetrain: req.body.drivetrain,
       engine: req.body.engine,
@@ -58,6 +59,7 @@ vehicleRouter.delete('/:id', expressAsyncHandler(async (req, res) => {
         vehicle.year = req.body.year;
         vehicle.vehicleModel = req.body.vehicleModel;
         vehicle.bodyType = req.body.bodyType;
+        vehicle.image = req.body.image;
         vehicle.transmission = req.body.transmission;
         vehicle.drivetrain = req.body.drivetrain;
         vehicle.engine = req.body.engine;

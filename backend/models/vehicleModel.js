@@ -5,6 +5,7 @@ const vehicleSchema = new mongoose.Schema(
         year: {type: String, required: true},
         vehicleModel: {type: String, required: true},
         bodyType: {type: String, required: true},
+        image: {type:String, required: true},
         transmission: {type: String, required: true},
         drivetrain: {type: String, required: true},
         engine: {type: String, required: true},
