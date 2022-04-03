@@ -37,6 +37,7 @@ vehicleRouter.post('/add', expressAsyncHandler( async (req,res) => {
       interiorColor: req.body.interiorColor,
       exteriorColor: req.body.exteriorColor,
       stockNumber: req.body.stockNumber,
+      price: req.body.price,
     })
     const createVehicle = await vehicle.save();
     res.send( {message: 'Vehicle added', vehicle: createVehicle }); 
@@ -69,7 +70,8 @@ vehicleRouter.delete('/:id', expressAsyncHandler(async (req, res) => {
         vehicle.mileage = req.body.mileage;
         vehicle.interiorColor = req.body.interiorColor;
         vehicle.exteriorColor = req.body.exteriorColor;
-        vehicle.stockNumber = req.body.stockNumber
+        vehicle.stockNumber = req.body.stockNumber;
+        vehicle.price = req.body.price;
 
         const updateVehicle = await vehicle.save();
         res.send({message: 'Vehicle Updated', vehicle: updateVehicle});
