@@ -16,7 +16,7 @@ const vehicleSchema = new mongoose.Schema(
         interiorColor: {type: String, required: true},
         exteriorColor: {type: String, required: true},
         stockNumber: {type: String, required: true},
-        price: {type: String, required: true},
+        price: {type: Number, required: true},
     },
     {
         timestamps: true,

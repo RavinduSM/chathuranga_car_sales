@@ -5,6 +5,8 @@ import path from 'path';
 import userRouter from './routers/userRouter.js';
 import vehicleRouter from './routers/vehicleRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
+import reserveRouter from './routers/reserveRouter.js';
+import messageRouter from './routers/messageRouter.js';
 
 const app = express();
 dotenv.config();
@@ -17,6 +19,8 @@ mongoose.connect (process.env.MongoDB_URL);
 app.use('/api/users', userRouter);
 app.use('/api/vehicles', vehicleRouter);
 app.use('/api/uploads', uploadRouter);
+app.use('/api/reserves', reserveRouter);
+app.use('/api/messages', messageRouter);
 
 
 const __dirname = path.resolve();

@@ -68,7 +68,7 @@ userRouter.post('/:id', isAuth, isAdmin,
     })    
 );
 
-userRouter.get('/', isAuth, isAdmin, expresssAsyncHandler(async (req,res) => {
+userRouter.get('/',  expresssAsyncHandler(async (req,res) => {
     const users = await User.find({});
     res.send(users);
     })

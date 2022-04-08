@@ -4,6 +4,7 @@ import { listVehicles } from '../actions/vehicleActions';
 import Loading from '../components/Loading';
 import Message from '../components/Message';
 import Vehicles from '../components/Vehicles';
+import imgbanner from '../a.jpg'
 
 
 export default function VehicleScreen() {
@@ -15,15 +16,17 @@ export default function VehicleScreen() {
     dispatch(listVehicles());
   }, [dispatch])
   return (
-    <div>
+    <div className='container'>
       { loading ? (
         <Loading/>
       ): error ?
       (<Message variant="danger">{error}</Message>
       ):(
-        <div className="row">          {
+        <div className="row">      
+         <img src={imgbanner} />   
+          {
               vehicles.map((vehicle) => (
-                <Vehicles key={vehicle.id} vehicle={vehicle}/>
+                <Vehicles key={vehicle._id} vehicle={vehicle}/>
               ))
           }
         </div>

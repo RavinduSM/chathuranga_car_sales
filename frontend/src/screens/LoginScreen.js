@@ -15,7 +15,7 @@ export default function LoginScreen(props) {
   //   : '/';
 
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo, loading, error } = userSignin;
+  const { userData, loading, error } = userSignin;
 
   const dispatch = useDispatch();
 
