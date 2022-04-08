@@ -27,7 +27,7 @@ export default function DetailsScreen(props) {
       
       <div className="row">
             <div className="col-12 col-sm-8">
-            <img src={imgbanner}  />
+            <img src={vehicle.image}  />
             </div>
             <div className="col-12 col-sm-4">
                 <h1 className='text-center'>{vehicle.vehicleModel}</h1>
