@@ -9,7 +9,6 @@ import VehicleDetailScreen from './screens/VehicleDetailScreen';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DetailsScreen from './screens/DetailsScreen';
 import Contacts from './screens/Contact';
-import { Navbar } from './components/Navbars';
 
 
 function App() {
